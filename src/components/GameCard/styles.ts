@@ -1,5 +1,4 @@
 import styled, { css, DefaultTheme } from 'styled-components'
-
 export const Wrapper = styled.article`
   ${({ theme }) => css`
     position: relative;
@@ -10,7 +9,6 @@ export const Wrapper = styled.article`
     background-color: ${theme.colors.white};
   `}
 `
-
 export const ImageBox = styled.div`
   height: 14rem;
   width: 100%;
@@ -24,24 +22,20 @@ export const ImageBox = styled.div`
   );
   background-size: 80rem 14rem;
   animation: placeholderShimmer 1s linear infinite forwards;
-
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-
   @keyframes placeholderShimmer {
     0% {
       background-position: -40rem 0;
     }
-
     100% {
       background-position: 40rem 0;
     }
   }
 `
-
 export const Content = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -52,11 +46,9 @@ export const Content = styled.div`
     margin: ${theme.spacings.xsmall};
   `}
 `
-
 export const Info = styled.div`
   max-width: calc(100% - 2.5rem);
 `
-
 export const Title = styled.h3`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.medium};
@@ -65,7 +57,6 @@ export const Title = styled.h3`
     color: ${theme.colors.black};
   `}
 `
-
 export const Developer = styled.h4`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
@@ -73,7 +64,6 @@ export const Developer = styled.h4`
     color: ${theme.colors.gray};
   `}
 `
-
 export const FavButton = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
@@ -86,7 +76,6 @@ export const FavButton = styled.div`
     }
   `}
 `
-
 export const BuyBox = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -95,11 +84,9 @@ export const BuyBox = styled.div`
     margin-top: ${theme.spacings.xxsmall};
   `}
 `
-
 type PriceProps = {
   isPromotional?: boolean
 }
-
 const priceModifiers = {
   default: (theme: DefaultTheme) => css`
     color: ${theme.colors.white};
@@ -108,11 +95,10 @@ const priceModifiers = {
     border-radius: ${theme.border.radius};
     margin-right: calc(${theme.spacings.xxsmall} / 2);
   `,
-
   promotional: (theme: DefaultTheme) => css`
     color: ${theme.colors.gray};
     text-decoration: line-through;
-    margin-right: ${theme.spacings.xsmall};
+    margin-right: ${theme.spacings.xxsmall};
   `
 }
 
@@ -122,7 +108,7 @@ export const Price = styled.div<PriceProps>`
     font-weight: ${theme.font.bold};
     height: 3rem;
     align-items: center;
-    ${!isPromotional && priceModifiers.default(theme)}
-    ${isPromotional && priceModifiers.promotional(theme)}
+    ${!isPromotional && priceModifiers.default(theme)};
+    ${isPromotional && priceModifiers.promotional(theme)};
   `}
 `
