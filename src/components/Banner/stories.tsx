@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import Banner, { BannerProps } from '.'
+
 export default {
   title: 'Banner',
   component: Banner,
@@ -19,6 +20,7 @@ export default {
     layout: 'fullscreen'
   }
 } as Meta
+
 export const Default: Story<BannerProps> = (args) => (
   <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
     <Banner {...args} />
