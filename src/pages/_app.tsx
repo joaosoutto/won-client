@@ -9,12 +9,9 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>Boilerplate</title>
+        <title>Won Games</title>
         <link rel="manifest" href="/manifest.json" />
-        <meta
-          name="description"
-          content="A simple project starter to work with TypeScript, React, NextJS and Styled Components"
-        />
+        <meta name="description" content="A complete game store!" />
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
