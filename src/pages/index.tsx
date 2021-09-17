@@ -1,28 +1,25 @@
-import Home from 'templates/Home'
+import Home, { HomeTemplateProps } from 'templates/Home'
 
-// export default function Index(props: type here) {
-//   return <Home {...props} />
-// }
+import bannersMock from '../components/BannerSlider/mock'
+import gamesMock from '../components/GameCardSlider/mock'
+import highlightMock from '../components/Highlight/mock'
 
-export default function Index() {
-  return <Home />
+export default function Index(props: HomeTemplateProps) {
+  return <Home {...props} />
 }
 
-// ATENTION:
-// Methods like getStaticProps or getServerSideProps ONLY WOKR ON /pages !!
-
-// getStaticProps: generate static in build time
-// getServerSideProps: gerenate via SSR on each request
-
-// export function getServerSideProps/getStaticProps() {
-//   make some logic here
-//   consume an API
-//   context reading
-
-//    then return data:
-//    return {
-//      props: {
-//        data here
-//      }
-//    }
-//  }
+export function getServerSideProps() {
+  return {
+    props: {
+      banners: bannersMock,
+      newGames: gamesMock,
+      mostPopularHighlight: highlightMock,
+      mostPopularGames: gamesMock,
+      upcommingGames: gamesMock,
+      upcommingHighligth: highlightMock,
+      upcommingMoreGames: gamesMock,
+      freeGames: gamesMock,
+      freeHighligth: highlightMock
+    }
+  }
+}
