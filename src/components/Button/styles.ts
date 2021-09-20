@@ -3,7 +3,7 @@ import { ButtonProps } from '.'
 
 type WrapperProps = { hasIcon: boolean } & Pick<
   ButtonProps,
-  'size' | 'fullWidth'
+  'size' | 'fullWidth' | 'minimal'
 >
 
 const WrapperModifiers = {
@@ -32,11 +32,15 @@ const WrapperModifiers = {
         margin-left: ${theme.spacings.xsmall};
       }
     }
+  `,
+  minimal: (theme: DefaultTheme) => css`
+  background: none;
+  color: ${theme.colors.primary};
   `
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon }) => css`
+  ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -50,11 +54,12 @@ export const Wrapper = styled.button<WrapperProps>`
     text-decoration: none;
 
     &:hover {
-      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%);
+      background: ${minimal ? 'none' : `linear-gradient(180deg, #e35565 0%, #d958a6 50%)`};
     }
 
     ${!!size && WrapperModifiers[size](theme)}
     ${!!fullWidth && WrapperModifiers.fullWidth()}
     ${!!hasIcon && WrapperModifiers.withIcon(theme)}
+    ${!!minimal && WrapperModifiers.minimal(theme)}
   `}
 `
