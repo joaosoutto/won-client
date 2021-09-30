@@ -44,6 +44,7 @@ const settings: SliderSettings = {
   nextArrow: <ArrowRight aria-label="next games" />,
   prevArrow: <ArrowLeft aria-label="previous games" />
 }
+
 export type GameCardSliderProps = {
   items: GameCardProps[]
   color?: 'white' | 'black'
@@ -58,4 +59,5 @@ const GameCardSlider = ({ items, color = 'white' }: GameCardSliderProps) => (
     </Slider>
   </S.Wrapper>
 )
+
 export default GameCardSlider
