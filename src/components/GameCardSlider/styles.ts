@@ -7,7 +7,7 @@ type WrapperProps = Pick<GameCardSliderProps, 'color'>
 
 export const Wrapper = styled.section<WrapperProps>`
   ${({ theme, color }) => css`
-    ${media.lessThan('huge')`
+    ${media.lessThan('medium')`
       overflow-x: hidden;
     `}
     .slick-track,
